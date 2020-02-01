@@ -16,9 +16,9 @@ namespace TCC.Installer.Game.Screen
  
     public class MainScreen : osu.Framework.Screens.Screen
     {
-        //private GridContainer TopBarContainer;
+        private GridContainer TopBarContainer;
         private Container backgroundSpriteContainer;
-
+        private Container FormContainer;
         
         public MainScreen()
         {
@@ -30,7 +30,13 @@ namespace TCC.Installer.Game.Screen
                 {
                     Child = new BackgroundComponent(),
                     RelativeSizeAxes = Axes.Both,
+                },
+                FormContainer = new Container
+                {
+                    Child = new ExperienceSelectionComponent(),
+                    RelativeSizeAxes = Axes.Both
                 }
+                
             };
         }
 

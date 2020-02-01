@@ -4,9 +4,11 @@
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Textures;
 using osu.Framework.IO.Stores;
 using osu.Framework.Screens;
 using osuTK;
+using osuTK.Platform;
 using TCC.Installer.Game.Screen;
 using TCCInstaller.Game;
 
@@ -19,16 +21,23 @@ namespace TCC.Installer.Game
         [Cached]
         protected readonly GlobalStore store = new GlobalStore();
 
+        protected LargeTextureStore largeTextureStore;
+        private DependencyContainer dependencies;
+        protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent) =>
+            dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
+
 
         private const string mainResourceFile = "TCC.Installer.Game.Resources.dll";
 
         [BackgroundDependencyLoader]
         private void load()
         {
-            Window.WindowBorder = WindowBorder.Hidden;
+            Window.WindowBorder = WindowBorder.Resizable;
             Window.Title = "The Cursed Constellations Installer";
             Resources.AddStore(new DllResourceStore(mainResourceFile));
-
+            largeTextureStore = new LargeTextureStore(Host.CreateTextureLoaderStore(new NamespacedResourceStore<byte[]>(Resources, @"Textures")));
+            largeTextureStore.AddStore(Host.CreateTextureLoaderStore(new OnlineStore()));
+            dependencies.Cache(largeTextureStore);
 
             // Fonts
             //AddFont(Resources, @"Fonts/Ageo Light Italic");
@@ -37,8 +46,9 @@ namespace TCC.Installer.Game
             //AddFont(Resources, @"Fonts/Ageo Regular Italic");
             //AddFont(Resources, @"Fonts/Ageo Regular");
             //AddFont(Resources, @"Fonts/Ageo Thin");
-
-            Add(installerScreenStack = new ScreenStack());
+            installerScreenStack = new ScreenStack();
+            installerScreenStack.RelativeSizeAxes = Axes.Both;
+            Add(installerScreenStack);
 
             installerScreenStack.Push(new MainScreen());
         }
