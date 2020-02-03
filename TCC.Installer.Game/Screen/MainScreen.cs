@@ -30,12 +30,15 @@ namespace TCC.Installer.Game.Screen
                 {
                     Child = new BackgroundComponent(),
                     RelativeSizeAxes = Axes.Both,
+                    Anchor=Anchor.TopLeft
                 },
                 FormContainer = new Container
                 {
-                    Child = new ExperienceSelectionComponent(),
-                    RelativeSizeAxes = Axes.Both
-                }
+                    Child = new PackSelectionComponent(),
+                    Anchor=Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Size = new Vector2(500, 50)
+        }
                 
             };
         }

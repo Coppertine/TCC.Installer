@@ -17,8 +17,8 @@ namespace TCC.Installer.Game.Components
             {
                 RelativePositionAxes = Axes.Both,
                 RelativeSizeAxes = Axes.Both,
-                Anchor = Anchor.Centre,
-                Origin = Anchor.Centre,
+                Anchor = Anchor.TopLeft,
+                Origin = Anchor.TopLeft,
                 Texture = store.Get("background"),
                 FillAspectRatio = 16f / 9f
             };
