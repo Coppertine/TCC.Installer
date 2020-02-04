@@ -32,13 +32,12 @@ namespace TCC.Installer.Game.Screen
                     RelativeSizeAxes = Axes.Both,
                     Anchor=Anchor.TopLeft
                 },
-                FormContainer = new Container
+                FormContainer = new BasicSelectionComponent()
                 {
-                    Child = new PackSelectionComponent(),
-                    Anchor=Anchor.Centre,
+                    Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Size = new Vector2(500, 50)
-        }
+                    RelativeSizeAxes = Axes.Both
+                }
                 
             };
         }

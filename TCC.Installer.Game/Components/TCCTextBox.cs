@@ -14,7 +14,8 @@ namespace TCC.Installer.Game.Components
         public TCCTextBox()
         {
             TextContainer.Height = 0.5f;
-            
+            BackgroundFocused = new Color4(0, 0, 0, 0.7f);
+            BackgroundUnfocused = new Color4(0, 0, 0, 0.7f);
             CornerRadius = 5;
             LengthLimit = 255;
         }
@@ -33,7 +34,7 @@ namespace TCC.Installer.Game.Components
         private void load()
         {
             TextContainer.Colour = Color4.White;
-            BorderColour = Color4.Transparent;
+            BorderColour = Color4.White;
             BackgroundCommit = BorderColour = Color4.Transparent;
         }
         protected override void OnFocus(FocusEvent e)

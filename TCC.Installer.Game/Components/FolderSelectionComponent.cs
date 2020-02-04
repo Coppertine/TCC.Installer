@@ -4,6 +4,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Platform;
 using osu.Framework.Platform.Windows;
@@ -25,13 +26,14 @@ namespace TCC.Installer.Game.Components
     /// 
     /// Entire component locks up when custom setting is used.
     /// </summary>
-    public class PackSelectionComponent : CompositeDrawable
+    public class FolderSelectionComponent : CompositeDrawable
     {
         
                 
         [BackgroundDependencyLoader]
         private void load()
         {
+
             RelativeSizeAxes = Axes.Both;
 
             InternalChild = new TCCTextBox
@@ -40,9 +42,14 @@ namespace TCC.Installer.Game.Components
                 CornerRadius = 7,
                 Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
                 PlaceholderText = "Songs Path",
-                Colour = new Color4(0, 0, 0, 0.7f),
+                Alpha = 0.7f
                 
             };
+            AddInternal(new Sprite
+            {
+                Origin = Anchor.CentreRight,
+                Anchor = Anchor.CentreRight
+            });
 
         }
 

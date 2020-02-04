@@ -10,4 +10,7 @@
     <EmbeddedResource Include="Tracks\**\*" />
    <EmbeddedResource Include="Fonts\**\*" />
   </ItemGroup>
+ <ItemGroup>
+   <Folder Include="Tracks\Preview\" />
+ </ItemGroup>
 </Project>
