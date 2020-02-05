@@ -42,12 +42,12 @@ namespace TCC.Installer.Game
 
          
             // Fonts
-            AddFont(Resources, @"Fonts/Ageo Light Italic/Ageo Light Italic");
-            AddFont(Resources, @"Fonts/Ageo Light/Ageo Light");
-            AddFont(Resources, @"Fonts/Ageo Medium/Ageo Medium");
-            AddFont(Resources, @"Fonts/Ageo Regular Italic/Ageo Regular Italic");
-            AddFont(Resources, @"Fonts/Ageo Regular/Ageo Regular");
-            AddFont(Resources, @"Fonts/Ageo Thin/Ageo Thin");
+            AddFont(Resources, @"Fonts/Ageo Light Italic");
+            AddFont(Resources, @"Fonts/Ageo Light");
+            AddFont(Resources, @"Fonts/Ageo Medium");
+            AddFont(Resources, @"Fonts/Ageo Regular Italic");
+            AddFont(Resources, @"Fonts/Ageo Regular");
+            AddFont(Resources, @"Fonts/Ageo Thin");
             
             installerScreenStack = new ScreenStack();
             installerScreenStack.RelativeSizeAxes = Axes.Both;
