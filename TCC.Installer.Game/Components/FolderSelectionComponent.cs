@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using TCC.Installer.Game.Components.Button;
 
 namespace TCC.Installer.Game.Components
 {
@@ -36,18 +37,21 @@ namespace TCC.Installer.Game.Components
 
             RelativeSizeAxes = Axes.None;
 
-            InternalChild = new TCCTextBox
+            AddInternal(new TCCTextBox
             {
                 RelativeSizeAxes = Axes.Both,
                 CornerRadius = 7,
                 Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
                 PlaceholderText = "Songs Path",
                 Alpha = 0.7f                
-            };
-            AddInternal(new Sprite
+            });
+
+            // 
+            AddInternal(new FileSelectButton
             {
                 Origin = Anchor.CentreRight,
-                Anchor = Anchor.CentreRight
+                Anchor = Anchor.CentreRight,
+                
             });
 
         }
