@@ -34,7 +34,7 @@ namespace TCC.Installer.Game.Components
         private void load()
         {
 
-            RelativeSizeAxes = Axes.Both;
+            RelativeSizeAxes = Axes.None;
 
             InternalChild = new TCCTextBox
             {
@@ -42,8 +42,7 @@ namespace TCC.Installer.Game.Components
                 CornerRadius = 7,
                 Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
                 PlaceholderText = "Songs Path",
-                Alpha = 0.7f
-                
+                Alpha = 0.7f                
             };
             AddInternal(new Sprite
             {

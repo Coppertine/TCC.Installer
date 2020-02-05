@@ -16,7 +16,7 @@ namespace TCC.Installer.Game.Components
         {
             RelativeSizeAxes = Axes.Both;
             Anchor = osu.Framework.Graphics.Anchor.Centre;
-            AddInternal(new FolderSelectionTextBox
+            AddInternal(new TCCTextBox
             {
                 
             });

@@ -18,6 +18,7 @@ namespace TCC.Installer.Game.Components
             BackgroundUnfocused = new Color4(0, 0, 0, 0.7f);
             CornerRadius = 5;
             LengthLimit = 255;
+            
         }
 
         protected override float LeftRightPadding => 10f;
@@ -25,9 +26,9 @@ namespace TCC.Installer.Game.Components
         
         protected override SpriteText CreatePlaceholder() => new SpriteText
         {
-            Colour = new Color4(180, 180, 180, 255),
+            Colour = new Color4(255, 255, 255, 0.5f),  
             Margin = new MarginPadding { Left = 2 },
-            Font = TCCFont.GetFont(italics: true)
+            Font = TCCFont.GetFont()
         };
 
         [BackgroundDependencyLoader]

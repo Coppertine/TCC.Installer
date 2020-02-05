@@ -22,6 +22,7 @@ namespace TCC.Installer.Game
         protected readonly GlobalStore store = new GlobalStore();
 
         protected LargeTextureStore largeTextureStore;
+        protected FontStore fontStore;
         private DependencyContainer dependencies;
         protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
@@ -39,19 +40,22 @@ namespace TCC.Installer.Game
             largeTextureStore.AddStore(Host.CreateTextureLoaderStore(new OnlineStore()));
             dependencies.Cache(largeTextureStore);
 
+         
             // Fonts
-            //AddFont(Resources, @"Fonts/Ageo Light Italic");
-            //AddFont(Resources, @"Fonts/Ageo Light");
-            //AddFont(Resources, @"Fonts/Ageo Medium");
-            //AddFont(Resources, @"Fonts/Ageo Regular Italic");
-            //AddFont(Resources, @"Fonts/Ageo Regular");
-            //AddFont(Resources, @"Fonts/Ageo Thin");
+            AddFont(Resources, @"Fonts/Ageo Light Italic/Ageo Light Italic");
+            AddFont(Resources, @"Fonts/Ageo Light/Ageo Light");
+            AddFont(Resources, @"Fonts/Ageo Medium/Ageo Medium");
+            AddFont(Resources, @"Fonts/Ageo Regular Italic/Ageo Regular Italic");
+            AddFont(Resources, @"Fonts/Ageo Regular/Ageo Regular");
+            AddFont(Resources, @"Fonts/Ageo Thin/Ageo Thin");
+            
             installerScreenStack = new ScreenStack();
             installerScreenStack.RelativeSizeAxes = Axes.Both;
             Add(installerScreenStack);
 
             installerScreenStack.Push(new MainScreen());
         }
+
 
         
     }

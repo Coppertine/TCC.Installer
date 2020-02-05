@@ -37,7 +37,7 @@ namespace TCC.Installer.Game.Screen
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     RelativeSizeAxes = Axes.Both
-                }
+        }
                 
             };
         }
