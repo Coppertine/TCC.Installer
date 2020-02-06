@@ -5,6 +5,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
+using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Platform;
 using osu.Framework.Platform.Windows;
@@ -34,7 +35,7 @@ namespace TCC.Installer.Game.Components
         [BackgroundDependencyLoader]
         private void load()
         {
-
+            
             RelativeSizeAxes = Axes.None;
 
             AddInternal(new TCCTextBox
@@ -46,13 +47,17 @@ namespace TCC.Installer.Game.Components
                 Alpha = 0.7f                
             });
 
-            // 
-            AddInternal(new FileSelectButton
+            FileSelectButton fileSelectButton = new FileSelectButton
             {
                 Origin = Anchor.CentreRight,
                 Anchor = Anchor.CentreRight,
                 
-            });
+            };
+
+            AddInternal(fileSelectButton);
+
+            //ChangeInternalChildDepth(fileSelectButton, -200);
+            // 
 
         }
 

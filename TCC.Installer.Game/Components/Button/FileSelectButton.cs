@@ -18,20 +18,23 @@ namespace TCC.Installer.Game.Components.Button
         [BackgroundDependencyLoader]
         private void load(LargeTextureStore store)
         {
+            Texture folderButton = store.Get("Folder Button");
+            Size = folderButton.Size / 2;
             AddInternal(new Sprite
             {
-                Texture = store.Get("Folder Button"),
+                Texture = folderButton,
                 Anchor = osu.Framework.Graphics.Anchor.CentreRight,
                 Origin = osu.Framework.Graphics.Anchor.CentreRight,
                 Margin = new MarginPadding(10),
-                Size = store.Get("Folder Button").Size / 2
+                Size = folderButton.Size / 2
             });
         }
 
         protected override bool OnClick(ClickEvent e)
         {
             Logger.Log("Clicked on Folder Icon");
-            return base.OnClick(e);
+
+            return true;
         }
     }
 }
