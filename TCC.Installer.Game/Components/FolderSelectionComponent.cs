@@ -44,7 +44,7 @@ namespace TCC.Installer.Game.Components
                 CornerRadius = 7,
                 Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
                 PlaceholderText = "Songs Path",
-                Alpha = 0.7f                
+                Alpha = 0.7f
             });
 
             FileSelectButton fileSelectButton = new FileSelectButton
@@ -54,7 +54,20 @@ namespace TCC.Installer.Game.Components
                 
             };
 
+            
+
+            // Displays the amount of space left in the selected drive.
+            DriveSizeText driveSizeText = new DriveSizeText
+            {
+                Origin = Anchor.CentreRight,
+                Anchor = Anchor.CentreRight,
+                
+            };
+
             AddInternal(fileSelectButton);
+            AddInternal(driveSizeText);
+
+
 
             //ChangeInternalChildDepth(fileSelectButton, -200);
             // 

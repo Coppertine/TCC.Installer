@@ -14,9 +14,7 @@ using TCC.Installer.Game.Screen;
 namespace TCC.Installer.Game.Components.Button
 {
     public class FileSelectButton : CompositeDrawable
-    {
-        private const float rightMargin = 10.0f;
- 
+    { 
 
         [BackgroundDependencyLoader]
         private void load(LargeTextureStore store)

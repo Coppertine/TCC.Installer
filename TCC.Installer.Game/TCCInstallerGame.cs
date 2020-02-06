@@ -45,8 +45,9 @@ namespace TCC.Installer.Game
             AddFont(Resources, @"Fonts/Ageo Light Italic");
             AddFont(Resources, @"Fonts/Ageo Light");
             AddFont(Resources, @"Fonts/Ageo Medium");
-            AddFont(Resources, @"Fonts/Ageo Regular Italic");
+            
             AddFont(Resources, @"Fonts/Ageo Regular");
+            AddFont(Resources, @"Fonts/Ageo Regular Italic");
             AddFont(Resources, @"Fonts/Ageo Thin");
             
             installerScreenStack = new ScreenStack();
