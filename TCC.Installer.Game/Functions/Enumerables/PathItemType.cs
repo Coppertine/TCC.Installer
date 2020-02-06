@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TCC.Installer.Game.Components.UI.FileDialogComponents;
 
 namespace TCC.Installer.Game.Functions.Enumerables
 {
