@@ -44,7 +44,7 @@ namespace TCC.Installer.Game.Components
                 CornerRadius = 7,
                 Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
                 PlaceholderText = "Songs Path",
-                Alpha = 0.7f
+                Alpha = 0.7f 
             });
 
             FileSelectButton fileSelectButton = new FileSelectButton

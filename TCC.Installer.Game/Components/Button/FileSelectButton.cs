@@ -6,15 +6,16 @@ using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Input.Events;
 using osu.Framework.Logging;
-using System.Collections.Generic;
-using System.Text;
+using System;
 using TCC.Installer.Game.Components.UI.FileDialogComponents;
 using TCC.Installer.Game.Screen;
 
 namespace TCC.Installer.Game.Components.Button
 {
     public class FileSelectButton : CompositeDrawable
-    { 
+    {
+
+        
 
         [BackgroundDependencyLoader]
         private void load(LargeTextureStore store)
@@ -34,15 +35,23 @@ namespace TCC.Installer.Game.Components.Button
         protected override bool OnClick(ClickEvent e)
         {
             Logger.Log("Clicked on Folder Icon");
-            GetSelectedFolderFromDialog();
+            OpenDialog(MainScreen.OpenFileDialogBindable, (string filePath) =>
+            {
+                Logger.Log($"Got {filePath}");
+            });
             return true;
         }
 
-        //public Bindable<OpenFileDialog> OpenFileDialogBindable =>  mainScreen.OpenFileDialogBindable;
 
-        private void GetSelectedFolderFromDialog()
+
+        private void OpenDialog<T>(Bindable<T> bindable, Action<string> onFileSelected) where T : FileDialog
         {
-            //OpenFileDialogBindable.Value.ToggleVisibility();
+
+            bindable.Value.ToggleVisibility();
+
+            bindable.Value.OnFileSelected += onFileSelected;
+
         }
+
     }
 }

@@ -20,7 +20,7 @@ namespace TCC.Installer.Game.Components
                 Text = "Free Size: 23 GB",
                 Origin = Anchor.CentreRight,
                 Anchor = Anchor.CentreRight,
-                Font = TCCFont.GetFont(Typeface.Ageo, size: 22, weight: FontWeight.Regular),
+                Font = TCCFont.GetFont(Typeface.Ageo, size: 22, weight: FontWeight.Thin),
                 Padding = new MarginPadding(20 + (folderButton.Size.X / 2))
             });
         }

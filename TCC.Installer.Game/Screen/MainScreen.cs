@@ -23,7 +23,9 @@ namespace TCC.Installer.Game.Screen
         private Container FormContainer;
        
 
-        public readonly Bindable<OpenFileDialog> OpenFileDialogBindable = new Bindable<OpenFileDialog>();
+        public static readonly Bindable<OpenFileDialog> OpenFileDialogBindable = new Bindable<OpenFileDialog>();
+        public static Bindable<CustomPack> CustomPackBindable = new Bindable<CustomPack>();
+
 
 
         public MainScreen()

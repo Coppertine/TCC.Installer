@@ -57,7 +57,7 @@ namespace TCC.Installer.Game
             installerScreenStack.Push(new MainScreen());
         }
 
-
+        
         
     }
 }
