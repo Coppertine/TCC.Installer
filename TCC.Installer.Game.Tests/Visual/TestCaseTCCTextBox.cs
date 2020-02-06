@@ -19,8 +19,7 @@ namespace TCC.Installer.Game.Tests.Visual
             typeof(TCCTextBox),
         };
 
-        [TestCase(false)]
-        [TestCase(true)]
+        [TestCase]
         public void TestTextBox() => createTextBox();
 
         private void createTextBox()
@@ -40,6 +39,7 @@ namespace TCC.Installer.Game.Tests.Visual
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         PlaceholderText = "This is definitely working as intended",
+                        Text = "This is now workling"
                     }
                 };
 
