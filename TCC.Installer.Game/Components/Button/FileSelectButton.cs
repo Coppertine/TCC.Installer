@@ -1,4 +1,5 @@
 ﻿using osu.Framework.Allocation;
+using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
@@ -7,12 +8,15 @@ using osu.Framework.Input.Events;
 using osu.Framework.Logging;
 using System.Collections.Generic;
 using System.Text;
+using TCC.Installer.Game.Components.UI.FileDialogComponents;
+using TCC.Installer.Game.Screen;
 
 namespace TCC.Installer.Game.Components.Button
 {
     public class FileSelectButton : CompositeDrawable
     {
         private const float rightMargin = 10.0f;
+ 
 
         [BackgroundDependencyLoader]
         private void load(LargeTextureStore store)
@@ -36,9 +40,11 @@ namespace TCC.Installer.Game.Components.Button
             return true;
         }
 
-        private string GetSelectedFolderFromDialog()
+        //public Bindable<OpenFileDialog> OpenFileDialogBindable =>  mainScreen.OpenFileDialogBindable;
+
+        private void GetSelectedFolderFromDialog()
         {
-            var dialog = new FolderBrowserDialog();
+            //OpenFileDialogBindable.Value.ToggleVisibility();
         }
     }
 }

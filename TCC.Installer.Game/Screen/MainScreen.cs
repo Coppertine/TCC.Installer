@@ -1,4 +1,5 @@
 ﻿using osu.Framework.Allocation;
+using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TCC.Installer.Game.Components;
+using TCC.Installer.Game.Components.UI.FileDialogComponents;
 
 namespace TCC.Installer.Game.Screen
 {
@@ -19,12 +21,16 @@ namespace TCC.Installer.Game.Screen
         private GridContainer TopBarContainer;
         private Container backgroundSpriteContainer;
         private Container FormContainer;
-        
+       
+
+        public readonly Bindable<OpenFileDialog> OpenFileDialogBindable = new Bindable<OpenFileDialog>();
+
+
         public MainScreen()
         {
             RelativePositionAxes = Axes.Both;
             RelativeSizeAxes = Axes.Both;
-            InternalChildren = new Drawable[]
+            AddRangeInternal(new Drawable[]
             {
                 backgroundSpriteContainer = new Container
                 {
@@ -37,9 +43,18 @@ namespace TCC.Installer.Game.Screen
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     RelativeSizeAxes = Axes.Both
-                }
-                
-            };
+                },
+                OpenFileDialogBindable.Value = new OpenFileDialog
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Size = new Vector2(0.8f),
+                    Anchor = Anchor.Centre,
+                    Origin = Anchor.Centre,
+                    Depth = -10
+                },
+
+
+            });
         }
 
        

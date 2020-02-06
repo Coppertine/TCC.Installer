@@ -5,13 +5,16 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.UserInterface;
 using System;
-using osuTK;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
 using TCC.Installer.Game.Components.UI.Panels;
 using Vector2 = osuTK.Vector2;
 using System.IO;
+using TCC.Installer.Game.Components.UI.KeybindingContainers;
+using static System.Environment;
+using static System.Environment.SpecialFolder;
+using static System.IO.Directory;
+using static System.IO.Path;
+using TCC.Installer.Game.Functions.General;
+using TCC.Installer.Game.Functions.Enumerables;
 
 namespace TCC.Installer.Game.Components.UI.FileDialogComponents
 {
@@ -196,7 +199,7 @@ namespace TCC.Installer.Game.Components.UI.FileDialogComponents
         public string CurrentDirectory
         {
             get => CurrentDirectoryBindable.Value;
-            set => CurrentDirectoryBindable.Value = FixDirectoryPath(value);
+            set => CurrentDirectoryBindable.Value = PathExpansionPack.FixDirectoryPath(value);
         }
 
         public DrawableItem CurrentlySelectedItem
@@ -223,7 +226,7 @@ namespace TCC.Installer.Game.Components.UI.FileDialogComponents
 
         public void UpdatePath(string newPath)
         {
-            var replaced = FixPath(newPath);
+            var replaced = PathExpansionPack.FixPath(newPath);
             search.Text = replaced;
             CurrentDirectory = GetDirectoryName(replaced) ?? GetDirectoryRoot(replaced);
         }
@@ -285,14 +288,14 @@ namespace TCC.Installer.Game.Components.UI.FileDialogComponents
 
         private void UpdateBreadcrumbs()
         {
-            var dirs = AnalyzePath(CurrentDirectory);
+            var dirs = PathExpansionPack.AnalyzePath(CurrentDirectory);
             filePathBreadcrumbs.Items.Clear();
             filePathBreadcrumbs.Items.AddRange(dirs);
         }
 
         private string GetCurrentBreadcrumbsDirectory()
         {
-            return ConcatenateDirectoryPath(filePathBreadcrumbs.Items);
+            return PathExpansionPack.ConcatenateDirectoryPath(filePathBreadcrumbs.Items);
         }
 
         private string GetCurrentSelectedPath()

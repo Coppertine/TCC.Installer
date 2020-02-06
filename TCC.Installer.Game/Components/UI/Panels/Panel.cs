@@ -39,7 +39,7 @@ namespace TCC.Installer.Game.Components.UI.Panels
                         new Box
                         {
                             RelativeSizeAxes = Axes.Both,
-                            Colour = GDEColors.FromHex("151515")
+                            Colour = TCCColours.FromHex("151515")
                         },
                     }
                 },
@@ -62,7 +62,7 @@ namespace TCC.Installer.Game.Components.UI.Panels
                             Origin = Anchor.Centre,
                             Anchor = Anchor.TopRight,
                             Size = new Vector2(20),
-                            Colour = GDEColors.FromHex("424242"),
+                            Colour = TCCColours.FromHex("424242"),
                             Margin = new MarginPadding
                             {
                                 Horizontal = 5,
