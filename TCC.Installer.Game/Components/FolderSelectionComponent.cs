@@ -4,6 +4,7 @@ using osu.Framework.Allocation;
 using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Primitives;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Graphics.UserInterface;
@@ -33,7 +34,7 @@ namespace TCC.Installer.Game.Components
         
                 
         [BackgroundDependencyLoader]
-        private void load()
+        private void load(DesktopGameHost host)
         {
             
             RelativeSizeAxes = Axes.None;
@@ -42,7 +43,7 @@ namespace TCC.Installer.Game.Components
             {
                 RelativeSizeAxes = Axes.Both,
                 CornerRadius = 7,
-                Text = new StableStorage(Host.GetSuitableHost(@"TCC.Installer")).GetStablePath(),
+                Text = new StableStorage(host).GetStablePath(),
                 PlaceholderText = "Songs Path",
                 Alpha = 0.7f 
             });
@@ -66,6 +67,14 @@ namespace TCC.Installer.Game.Components
 
             AddInternal(fileSelectButton);
             AddInternal(driveSizeText);
+
+
+            MarginPadding marginLine = new MarginPadding();
+            //marginLine.Right = 
+            AddInternal(new Sprite()
+            {
+                
+            });
 
 
 

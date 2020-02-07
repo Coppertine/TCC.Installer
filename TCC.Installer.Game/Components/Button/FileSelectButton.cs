@@ -6,6 +6,7 @@ using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Input.Events;
 using osu.Framework.Logging;
+using osu.Framework.Platform;
 using System;
 using TCC.Installer.Game.Components.UI.FileDialogComponents;
 using TCC.Installer.Game.Screen;
@@ -13,9 +14,7 @@ using TCC.Installer.Game.Screen;
 namespace TCC.Installer.Game.Components.Button
 {
     public class FileSelectButton : CompositeDrawable
-    {
-
-        
+    {        
 
         [BackgroundDependencyLoader]
         private void load(LargeTextureStore store)
