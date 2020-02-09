@@ -10,14 +10,16 @@ using osu.Framework.Platform;
 using System;
 using TCC.Installer.Game.Components.UI.FileDialogComponents;
 using TCC.Installer.Game.Screen;
+using static TCC.Installer.Game.Components.FolderSelectionComponent;
 
 namespace TCC.Installer.Game.Components.Button
 {
     public class FileSelectButton : CompositeDrawable
-    {        
+    {
+        private DesktopGameHost desktopHost;
 
         [BackgroundDependencyLoader]
-        private void load(LargeTextureStore store)
+        private void load(LargeTextureStore store, GameHost host)
         {
             Texture folderButton = store.Get("Folder Button");
             Size = folderButton.Size / 2;
@@ -29,6 +31,7 @@ namespace TCC.Installer.Game.Components.Button
                 Margin = new MarginPadding(10),
                 Size = folderButton.Size / 2
             });
+            desktopHost = (DesktopGameHost) host;
         }
 
         protected override bool OnClick(ClickEvent e)
@@ -47,6 +50,7 @@ namespace TCC.Installer.Game.Components.Button
         {
 
             bindable.Value.ToggleVisibility();
+            bindable.Value.CurrentDirectory = new StableStorage(desktopHost).GetStablePath();
 
             bindable.Value.OnFileSelected += onFileSelected;
 

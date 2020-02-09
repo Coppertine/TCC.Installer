@@ -16,7 +16,7 @@ namespace TCC.Installer.Game
 
         private string tempDL = "C://Evgerable/TheCC/";
 
-        private WebClient client;
+        private osu.Framework.IO.Network.FileWebRequest fileWebRequest;
 
         /// <summary>
         /// Downloads a preselected pack to the destination path.
@@ -26,7 +26,7 @@ namespace TCC.Installer.Game
         /// <param name="songPath">The absolute path to the osu!stable songs folder.</param>
         public void DownloadPack(string songPath, PackType packType)
         {
-            client = new WebClient();
+            
             switch (packType)
             {
                 case PackType.Minimum:

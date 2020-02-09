@@ -17,42 +17,50 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using TCC.Installer.Game.Components.Button;
+using TCC.Installer.Game.Screen;
 
 namespace TCC.Installer.Game.Components
 {
     /// <summary>
     /// Shows the component responsible for choosing a certain pack.
-    /// Includes:
-    /// Minimum
-    /// Standart
-    /// Deluxe
-    /// 
+    /// <para></para>Includes:
+    /// <list type="bullet">
+    /// <item>Minimum</item>
+    /// <item>Standart</item>
+    /// <item>Deluxe</item>
+    /// </list>
     /// Entire component locks up when custom setting is used.
     /// </summary>
     public class FolderSelectionComponent : CompositeDrawable
     {
-        
-                
+        public static Bindable<string> folderPathBindable = MainScreen.filePathBindable;
+        private static string folderPath;
+        TCCTextBox folderPathTextBox;
+
         [BackgroundDependencyLoader]
-        private void load(DesktopGameHost host)
+        private void load(GameHost host)
         {
             
             RelativeSizeAxes = Axes.None;
 
-            AddInternal(new TCCTextBox
+            folderPathTextBox = new TCCTextBox
             {
                 RelativeSizeAxes = Axes.Both,
                 CornerRadius = 7,
-                Text = new StableStorage(host).GetStablePath(),
+                Text =
+                    folderPath =
+                        new StableStorage((DesktopGameHost)host).GetStablePath(),
                 PlaceholderText = "Songs Path",
-                Alpha = 0.7f 
-            });
+                Alpha = 0.7f
+            };
+
+
+            AddInternal(folderPathTextBox);
 
             FileSelectButton fileSelectButton = new FileSelectButton
             {
                 Origin = Anchor.CentreRight,
-                Anchor = Anchor.CentreRight,
-                
+                Anchor = Anchor.CentreRight,                
             };
 
             
@@ -64,6 +72,7 @@ namespace TCC.Installer.Game.Components
                 Anchor = Anchor.CentreRight,
                 
             };
+            
 
             AddInternal(fileSelectButton);
             AddInternal(driveSizeText);
@@ -81,6 +90,17 @@ namespace TCC.Installer.Game.Components
             //ChangeInternalChildDepth(fileSelectButton, -200);
             // 
 
+            folderPathBindable.ValueChanged += FolderPathBindable_ValueChanged;
+        }
+
+        private void FolderPathBindable_ValueChanged(ValueChangedEvent<string> obj)
+        {
+            string tempFolderPath = File.Exists(obj.NewValue) ? Path.GetDirectoryName(obj.NewValue)
+                : Directory.Exists(obj.NewValue) ? obj.NewValue
+                : obj.OldValue;
+            folderPath = tempFolderPath;
+            folderPathTextBox.Text = tempFolderPath;
+            MainScreen.driveInfoBindable.Value = new DriveInfo(Path.GetPathRoot(tempFolderPath));
         }
 
         public class StableStorage : WindowsStorage

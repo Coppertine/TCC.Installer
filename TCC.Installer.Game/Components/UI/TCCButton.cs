@@ -9,8 +9,7 @@ namespace TCC.Installer.Game.Components.UI
     {
         public TCCButton()
             : base()
-        {
-            Height = 30;
+        {            
             CornerRadius = 3;
             Masking = true;
 

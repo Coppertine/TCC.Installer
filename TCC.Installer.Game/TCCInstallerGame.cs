@@ -40,15 +40,15 @@ namespace TCC.Installer.Game
             largeTextureStore.AddStore(Host.CreateTextureLoaderStore(new OnlineStore()));
             dependencies.Cache(largeTextureStore);
 
-         
+
             // Fonts
-            AddFont(Resources, @"Fonts/Ageo Light Italic");
-            AddFont(Resources, @"Fonts/Ageo Light");
-            AddFont(Resources, @"Fonts/Ageo Medium");
+            AddFont(Resources, @"Fonts/Ageo-Light");
+            AddFont(Resources, @"Fonts/Ageo-LightItalic");            
+            AddFont(Resources, @"Fonts/Ageo-Medium");
             
-            AddFont(Resources, @"Fonts/Ageo Regular");
-            AddFont(Resources, @"Fonts/Ageo Regular Italic");
-            AddFont(Resources, @"Fonts/Ageo Thin");
+            AddFont(Resources, @"Fonts/Ageo-Regular");
+            AddFont(Resources, @"Fonts/Ageo-RegularItalic");
+            AddFont(Resources, @"Fonts/Ageo-Thin");
             
             installerScreenStack = new ScreenStack();
             installerScreenStack.RelativeSizeAxes = Axes.Both;

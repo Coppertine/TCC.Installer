@@ -26,8 +26,12 @@ namespace TCC.Installer.Game.Graphics
         /// <param name="italics">Whether the font is italic.</param>
         /// <param name="fixedWidth">Whether all characters should be spaced the same distance apart.</param>
         /// <returns>The <see cref="FontUsage"/>.</returns>
-        public static FontUsage GetFont(Typeface typeface = Typeface.Ageo, float size = DEFAULT_FONT_SIZE, FontWeight weight = FontWeight.Medium, bool fixedWidth = false)
-            => new FontUsage(GetFamilyString(typeface), size, GetWeightString(typeface, weight), fixedWidth);
+#pragma warning disable IDE0060 // Remove unused parameter
+        public static FontUsage GetFont(Typeface typeface = Typeface.Ageo, float size = DEFAULT_FONT_SIZE, FontWeight weight = FontWeight.Medium, bool fixedWidth = false, bool italics = false)
+#pragma warning restore IDE0060 // Remove unused parameter
+        {
+            return new FontUsage(GetFamilyString(typeface), size, GetWeightString(typeface, weight), italics, fixedWidth);
+        }
 
         /// <summary>
         /// Retrieves the string representation of a <see cref="Typeface"/>.
@@ -39,7 +43,7 @@ namespace TCC.Installer.Game.Graphics
             switch (typeface)
             {
                 case Typeface.Ageo:
-                    return "Ageo ";
+                    return "Ageo";
             }
 
             return null;
@@ -61,17 +65,8 @@ namespace TCC.Installer.Game.Graphics
         /// <param name="weight">The <see cref="FontWeight"/>.</param>
         /// <returns>The string representation of <paramref name="weight"/> in the specified <paramref name="family"/>.</returns>
         public static string GetWeightString(string family, FontWeight weight)
-        {
-            switch (weight)
-            {
-                case FontWeight.RegularItalics:
-                    return "Regular Italic";
-                case FontWeight.LightItalics:
-                    return "Light Italic";
-                default:
-                    return weight.ToString();
-            }
-        }
+            => weight.ToString();
+
 
     }
 
@@ -104,12 +99,9 @@ namespace TCC.Installer.Game.Graphics
     public enum FontWeight
     {
         Light,
-        LightItalics,
-        Regular,
-        RegularItalics,        
+        Regular,     
         Medium,
         Thin
-
     }
 
 

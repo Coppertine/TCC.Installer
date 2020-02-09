@@ -47,13 +47,16 @@ namespace TCC.Installer.Game.Components
         protected override void OnFocusLost(FocusLostEvent e)
         {
             BorderThickness = 0;
-
+            FolderSelectionComponent.folderPathBindable.Value = base.Text;
             base.OnFocusLost(e);
         }
 
         protected override void NotifyInputError()
         {
-            throw new System.NotImplementedException();
+            
         }
+
+
+
     }
 }

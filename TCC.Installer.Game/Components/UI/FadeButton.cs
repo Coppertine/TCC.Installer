@@ -10,6 +10,8 @@ namespace TCC.Installer.Game.Components.UI
     {
         private Color4 enabledColor;
 
+    
+
         public Color4 EnabledColor
         {
             get => enabledColor;
@@ -27,7 +29,7 @@ namespace TCC.Installer.Game.Components.UI
         }
 
         public FadeButton()
-            : base() => Enabled.ValueChanged += EnabledChanged;
+            : base() {Enabled.ValueChanged += EnabledChanged; Height = 30; }
 
         private void EnabledChanged(ValueChangedEvent<bool> v) => this.TransformTo(nameof(BackgroundColour), GetAppropriateColor(v.NewValue), 200);
 
