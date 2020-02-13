@@ -8,18 +8,18 @@ namespace TCCInstaller.Game
 {
     public class GlobalStore
     {
-        public string GetMenuBarText() => "The Cursed Constellations";
-        public string GetMenuBarSecondary() => "Installer";
-
-        public string GetMinModeText() => "Minimum";
-        public string GetStandardModeText() => "Standart";
-        public string GetDeluxeModeText() => "Deluxe";
-
-        public string GetOneClickText() => "One-Click";
-        public string GetInstallationText() => "Installation";
-
-        public string GetCustomSettingsText() => "Custom Settings";
-        public string GetSettingsSecondary() => "Language & Episode Selection";
+        public static string GetMenuBarText() => "The Cursed Constellations";
+        public static string GetMenuBarSecondary() => "Installer";
+                
+        public static string GetMinModeText() => "Minimum";
+        public static string GetStandardModeText() => "Standart";
+        public static string GetDeluxeModeText() => "Deluxe";
+                
+        public static string GetOneClickText() => "One-Click";
+        public static string GetInstallationText() => "Installation";
+                
+        public static string GetCustomSettingsText() => "Custom Settings";
+        public static string GetSettingsSecondary() => "Language & Episode Selection";
 
 
     }

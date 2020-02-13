@@ -18,7 +18,7 @@ namespace TCC.Installer.Game.Components.UI.Panels
         public bool AllowDrag = true;
         public bool LockDrag = false;
 
-        protected virtual string Name
+        protected new virtual string Name
         {
             get => (string)text?.Text ?? "";
             set => text.Text = value;

@@ -26,7 +26,7 @@ namespace TCC.Installer.Game.Components
             AddInternal(new InstallButtonComponent()
             {
                 Anchor = Anchor.Centre,
-                Origin = Anchor.BottomRight,
+                Origin = Anchor.TopCentre,
                 Position = new Vector2(0, 55) //50 pixels down plus 5 pixels padding.
             });
 
@@ -34,7 +34,7 @@ namespace TCC.Installer.Game.Components
             {
                 Anchor = Anchor.BottomCentre,
                 Origin = Anchor.Centre,
-                RelativeSizeAxes = Axes.None,
+
             });
         }
     }

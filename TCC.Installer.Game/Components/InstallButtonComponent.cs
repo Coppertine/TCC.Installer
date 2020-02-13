@@ -4,6 +4,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.UserInterface;
 using osuTK;
 using TCC.Installer.Game.Components.UI;
+using TCCInstaller.Game;
 
 namespace TCC.Installer.Game.Components
 {
@@ -14,10 +15,11 @@ namespace TCC.Installer.Game.Components
         {
             AddInternal(new OneClickInstallButton()
             {
-                Text = "ONE-CLICK",
+                Text = GlobalStore.GetOneClickText().ToUpper(),
                 SecondaryText = "INSTALLATION",
-                Size = new Vector2(600,72),
+                Size = new Vector2(600,100),
                 Origin = Anchor.TopCentre,
+                BackgroundColour = new osuTK.Graphics.Color4(0,0,0,0.7f)
             });
         }
     }

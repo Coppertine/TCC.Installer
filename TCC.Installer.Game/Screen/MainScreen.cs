@@ -37,6 +37,7 @@ namespace TCC.Installer.Game.Screen
         /// </summary>
         public static Bindable<DriveInfo> driveInfoBindable = new Bindable<DriveInfo>(new DriveInfo(@"C:\"));
 
+
         public MainScreen()
         {
             RelativePositionAxes = Axes.Both;

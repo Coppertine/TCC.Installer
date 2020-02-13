@@ -17,7 +17,8 @@ namespace TCC.Installer.Game
     public class TCCInstallerGame : osu.Framework.Game
     {
         
-        private ScreenStack installerScreenStack;
+        public static ScreenStack installerScreenStack;
+        public static MainScreen mainScreen;
         [Cached]
         protected readonly GlobalStore store = new GlobalStore();
 
@@ -54,7 +55,7 @@ namespace TCC.Installer.Game
             installerScreenStack.RelativeSizeAxes = Axes.Both;
             Add(installerScreenStack);
 
-            installerScreenStack.Push(new MainScreen());
+            installerScreenStack.Push(mainScreen = new MainScreen());
         }
 
         
