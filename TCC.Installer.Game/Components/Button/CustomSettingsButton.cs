@@ -6,32 +6,27 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Input.Events;
-using osu.Framework.Logging;
+using osu.Framework.Screens;
 using osuTK;
 using osuTK.Graphics;
 using System;
-using TCC.Installer.Game.Components;
+using System.Collections.Generic;
+using System.Text;
 using TCC.Installer.Game.Graphics;
+using TCC.Installer.Game.Screen;
 using TCCInstaller.Game;
 
-namespace TCC.Installer.Game.Components
+namespace TCC.Installer.Game.Components.Button
 {
-    public class OneClickInstallButton : ClickableContainer
+    public class CustomSettingsButton : ClickableContainer
     {
-        public Texture Texture { get => null; set => LogoTexture = Texture; }
-
         protected SpriteText SpriteTextMain;
         protected SpriteText SpriteTextSecondary;
-        protected Container LogoSprite;
-        private Texture LogoTexture;
         private Box BackgroundBox;
         private Box HoverBox;
 
         public string Text { get; set; }
-
-
         public Color4 BackgroundColour { get; set; }
 
         private Color4? flashColour;
@@ -90,41 +85,25 @@ namespace TCC.Installer.Game.Components
         {
             Action = () =>
             {
-                PackInstaller.InstallPack();
+                TCCInstallerGame.mainScreen.Push(new CustomSettingsScreen());
             };
 
-            CornerRadius = 10;
+            CornerRadius = 5;
             Masking = true;
             BackgroundColour = new Color4(0, 0, 0, 0.7f);
-            LogoTexture = largeTextureStore.Get(@"Logo");
+
             AddRangeInternal(new Drawable[]
             {
-                LogoSprite = CreateLogoSprite(),
+
                 BackgroundBox = CreateButtonBox(),
                 SpriteTextMain = CreateText(),
                 SpriteTextSecondary = CreateSecondaryText(),
-                
+
                 HoverBox = CreateHoverBox(),
             });
 
             Enabled.BindValueChanged(enabledChanged, true);
         }
-
-
-
-        private Container CreateLogoSprite() => new Container
-        {
-            Child = new Sprite
-            {
-                Depth = -1,
-                Alpha = 0.7f,
-                Texture = LogoTexture,
-                Anchor = Anchor.Centre,
-                Origin = Anchor.Centre,
-                Size = new Vector2(LogoTexture.DisplayWidth / 5, (LogoTexture.DisplayHeight / 5)),
-            },         
-            RelativeSizeAxes = Axes.Both
-        };
 
         private SpriteText CreateSecondaryText() => new SpriteText
         {
@@ -132,9 +111,9 @@ namespace TCC.Installer.Game.Components
             Origin = Anchor.TopCentre,
             Position = new Vector2(0, 10),
             Depth = -2,
-            Font = TCCFont.GetFont(weight: FontWeight.Light, size: 32),
+            Font = TCCFont.GetFont(weight: FontWeight.Light, size: 19),
             Colour = Color4.White,
-            Text = GlobalStore.GetInstallationText().ToUpper(),
+            Text = GlobalStore.GetSettingsSecondary().ToUpper(),
         };
 
         private SpriteText CreateText() => new SpriteText
@@ -142,19 +121,19 @@ namespace TCC.Installer.Game.Components
             Anchor = Anchor.Centre,
             Origin = Anchor.BottomCentre,
             Depth = -2,
-            Font = TCCFont.GetFont(weight: FontWeight.Regular, size: 55),
-            Colour = Color4.White,
+            Font = TCCFont.GetFont(weight: FontWeight.Regular, size: 39),
+            Colour = TCCColours.FromHex("#ab3ee2"),
             Position = new Vector2(0, 10),
-            Text = GlobalStore.GetOneClickText().ToUpper(),
+            Text = GlobalStore.GetCustomSettingsText().ToUpper(),
         };
 
         protected Box CreateButtonBox() => new Box
         {
             Depth = 0,
-            Size = new Vector2(600, 165),
+            Size = new Vector2(450, 101),
             Anchor = Anchor.Centre,
             Origin = Anchor.Centre,
-            
+
             Colour = BackgroundColour
         };
 
@@ -163,8 +142,7 @@ namespace TCC.Installer.Game.Components
             Alpha = 0,
             Anchor = Anchor.Centre,
             Origin = Anchor.Centre,
-            
-            Size = new Vector2(600, 165),
+            Size = new Vector2(450, 101),
             Colour = Color4.White.Opacity(.1f),
             Blending = BlendingParameters.Additive
         };

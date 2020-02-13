@@ -15,11 +15,9 @@ namespace TCC.Installer.Game.Components
         {
             AddInternal(new OneClickInstallButton()
             {
-                Text = GlobalStore.GetOneClickText().ToUpper(),
-                SecondaryText = "INSTALLATION",
-                Size = new Vector2(600,100),
+                Size = new Vector2(600,150),
                 Origin = Anchor.TopCentre,
-                BackgroundColour = new osuTK.Graphics.Color4(0,0,0,0.7f)
+                
             });
         }
     }

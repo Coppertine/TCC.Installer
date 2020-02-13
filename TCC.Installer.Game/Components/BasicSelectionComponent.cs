@@ -34,7 +34,7 @@ namespace TCC.Installer.Game.Components
             {
                 Anchor = Anchor.BottomCentre,
                 Origin = Anchor.Centre,
-
+                Position = new Vector2(0, -155) //50 pixels up plus 5 pixels padding.
             });
         }
     }

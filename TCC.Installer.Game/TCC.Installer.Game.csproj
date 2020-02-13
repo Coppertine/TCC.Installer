@@ -9,7 +9,4 @@
   <ItemGroup>
     <ProjectReference Include="..\TCC.Installer.Game.Resources\TCC.Installer.Game.Resources.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IO\" />
-  </ItemGroup>
 </Project>
