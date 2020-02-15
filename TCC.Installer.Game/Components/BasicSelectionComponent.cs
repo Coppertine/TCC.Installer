@@ -3,6 +3,8 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Textures;
 using osuTK;
+using TCC.Installer.Game.Components.Button;
+using TCC.Installer.Game.Components.PackSelection;
 
 namespace TCC.Installer.Game.Components
 {
@@ -12,9 +14,16 @@ namespace TCC.Installer.Game.Components
         private void load()
         {
 
-            Strategy = DrawSizePreservationStrategy.Average;
-            ///TODO: Add Pack Selection, Custom Settings buttons
+            //Strategy = DrawSizePreservationStrategy.Average;
+            ///TODO: Add Pack Selection
 
+            AddInternal(new PackSelectionComponent
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                RelativeSizeAxes = Axes.None,
+                Size = new Vector2(800, 100),
+            });
             LoadComponentAsync(new FolderSelectionComponent()
             {
                 Anchor = Anchor.Centre,
@@ -25,6 +34,7 @@ namespace TCC.Installer.Game.Components
 
             AddInternal(new InstallButtonComponent()
             {
+                RelativeSizeAxes = Axes.None,
                 Anchor = Anchor.Centre,
                 Origin = Anchor.TopCentre,
                 Position = new Vector2(0, 55) //50 pixels down plus 5 pixels padding.
@@ -32,9 +42,18 @@ namespace TCC.Installer.Game.Components
 
             AddInternal(new CustomSettingsButtonComponent()
             {
+                RelativeSizeAxes = Axes.None,
+                Anchor = Anchor.Centre,
+                Origin = Anchor.BottomCentre,
+                Position = new Vector2(0, 225) //230 pixels down plus 5 pixels padding. 
+            });
+            AddInternal(new ScrollDownButton
+            {
+                Size = new Vector2(100, 100),
+                Origin = Anchor.BottomCentre,
                 Anchor = Anchor.BottomCentre,
-                Origin = Anchor.Centre,
-                Position = new Vector2(0, -155) //50 pixels up plus 5 pixels padding.
+                Position = new Vector2(0,15),
+                RelativeSizeAxes = Axes.None,
             });
         }
     }

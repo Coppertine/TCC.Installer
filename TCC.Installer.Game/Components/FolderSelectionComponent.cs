@@ -78,12 +78,6 @@ namespace TCC.Installer.Game.Components
             AddInternal(driveSizeText);
 
 
-            MarginPadding marginLine = new MarginPadding();
-            //marginLine.Right = 
-            AddInternal(new Sprite()
-            {
-                
-            });
 
 
 

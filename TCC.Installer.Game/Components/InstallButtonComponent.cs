@@ -17,6 +17,7 @@ namespace TCC.Installer.Game.Components
             {
                 Size = new Vector2(600,150),
                 Origin = Anchor.TopCentre,
+
                 
             });
         }

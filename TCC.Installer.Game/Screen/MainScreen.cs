@@ -5,6 +5,7 @@ using osu.Framework.Logging;
 using osuTK;
 using System.IO;
 using TCC.Installer.Game.Components;
+using TCC.Installer.Game.Components.CustomSettings;
 using TCC.Installer.Game.Components.UI.FileDialogComponents;
 
 namespace TCC.Installer.Game.Screen
@@ -12,10 +13,11 @@ namespace TCC.Installer.Game.Screen
 
     public class MainScreen : osu.Framework.Screens.Screen
     {
-        private GridContainer TopBarContainer;
-        private Container backgroundSpriteContainer;
-        private Container FormContainer;
-       
+        public static GridContainer TopBarContainer;
+        public static Container BackgroundSpriteContainer;
+        public static Container FormContainer;
+        public static Container CustomSettingsContainer;
+
         /// <summary>
         /// The bindable value of a file dialog component.
         /// </summary>
@@ -40,11 +42,14 @@ namespace TCC.Installer.Game.Screen
 
         public MainScreen()
         {
+            /// TODO: Get json information from Evgerable site (using EpisodeDownloader) to grab the episode list,
+            /// their sizes and different pack sizes
+
             RelativePositionAxes = Axes.Both;
             RelativeSizeAxes = Axes.Both;
             AddRangeInternal(new Drawable[]
             {
-                backgroundSpriteContainer = new Container
+                BackgroundSpriteContainer = new Container
                 {
                     Child = new BackgroundComponent(),
                     RelativeSizeAxes = Axes.Both,
@@ -66,10 +71,20 @@ namespace TCC.Installer.Game.Screen
                 },
 
                 //TODO: Scroll Bar container
+                
 
-
+                // Custom Settings Screen Components //
+                CustomSettingsContainer = new CustomSettingsContainer()
+                {
+                    Anchor = Anchor.BottomCentre,
+                    Origin = Anchor.Centre,
+                    Size = new Vector2(500, 200),
+                    Position = new Vector2(0,-1000),
+                    
+                }
 
             });
+            ;
 
             OpenFileDialogBindable.Value.OnFileSelected += (string obj) =>
             {
