@@ -349,4 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-TCC.Installer/GlobalStore.cs
+/TCC.Installer.Game/GlobalStore.cs
