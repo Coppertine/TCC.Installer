@@ -11,7 +11,7 @@ namespace TCC.Installer.Game.Components.CustomSettings
         [BackgroundDependencyLoader]
         private void load()
         {
-            Strategy = DrawSizePreservationStrategy.Average;
+            
             //AddInternal();
         }
     }

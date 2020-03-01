@@ -21,6 +21,7 @@ namespace TCC.Installer.Game.Components.Button
             {
                 MainScreen.FormContainer.MoveToY(-1050, 700, Easing.OutQuint);
             };
+
             ChevronTexture = store.Get("chevron");
             AddInternal(new Sprite
             {

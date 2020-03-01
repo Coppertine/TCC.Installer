@@ -73,15 +73,7 @@ namespace TCC.Installer.Game.Screen
                 //TODO: Scroll Bar container
                 
 
-                // Custom Settings Screen Components //
-                CustomSettingsContainer = new CustomSettingsContainer()
-                {
-                    Anchor = Anchor.BottomCentre,
-                    Origin = Anchor.Centre,
-                    Size = new Vector2(500, 200),
-                    Position = new Vector2(0,-1000),
-                    
-                }
+                
 
             });
             ;

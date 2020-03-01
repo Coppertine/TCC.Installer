@@ -20,6 +20,7 @@ namespace TCCInstaller.Game
                 
         public static string GetCustomSettingsText() => "Custom Settings";
         public static string GetSettingsSecondary() => "Language, Video Quality, & Episode Selection";
+        public static string GetApplicationID() => "";
 
 
     }

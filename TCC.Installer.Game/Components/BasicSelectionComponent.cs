@@ -14,7 +14,9 @@ namespace TCC.Installer.Game.Components
         private void load()
         {
 
-            //Strategy = DrawSizePreservationStrategy.Average;
+            Strategy = DrawSizePreservationStrategy.Average;
+            
+            
             ///TODO: Add Pack Selection
 
             AddInternal(new PackSelectionComponent
