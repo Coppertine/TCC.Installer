@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # GlobalStore file, includes Discord spesific information and LocalText.
-TCC.InstallerGame/GlobalStore.cs
+GlobalStore.cs
