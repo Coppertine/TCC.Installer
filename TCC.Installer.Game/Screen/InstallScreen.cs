@@ -17,6 +17,14 @@ namespace TCC.Installer.Game.Screen
             {
                 Text = "Install Screen"
             });
+
+            MainScreen.clientBindable.Value.SetPresence(
+                new DiscordRPC.RichPresence
+                {
+                    Details = "Downloading",
+                    State = "Episode 1",
+
+                });
         }
     }
 }

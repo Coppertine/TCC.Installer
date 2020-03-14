@@ -1,12 +1,16 @@
-﻿using osu.Framework.Bindables;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Logging;
 using osuTK;
+using System;
 using System.IO;
 using TCC.Installer.Game.Components;
 using TCC.Installer.Game.Components.CustomSettings;
 using TCC.Installer.Game.Components.UI.FileDialogComponents;
+using TCCInstaller.Game;
 
 namespace TCC.Installer.Game.Screen
 {
@@ -38,6 +42,19 @@ namespace TCC.Installer.Game.Screen
         /// The drive info from the selected song path file of filePathBindable.
         /// </summary>
         public static Bindable<DriveInfo> driveInfoBindable = new Bindable<DriveInfo>(new DriveInfo(@"C:\"));
+
+        public static Bindable<DiscordRpcClient> clientBindable = new Bindable<DiscordRpcClient>();
+
+        private static RichPresence presence = new RichPresence()
+        {
+            Details = "Selecting Packs",
+            Assets = new Assets()
+            {
+                LargeImageKey = "logo",
+                
+                
+            }
+        };
 
 
         public MainScreen()
@@ -84,11 +101,33 @@ namespace TCC.Installer.Game.Screen
                 driveInfoBindable.Value = new DriveInfo(Path.GetPathRoot(obj));
                 filePathBindable.Value = obj;
             };
+
+            clientBindable.Value = new DiscordRpcClient(GlobalStore.GetDiscordClientID());
+            clientBindable.Value.Logger = new ConsoleLogger() { Level = DiscordRPC.Logging.LogLevel.Warning };
+
+            //Subscribe to events
+            clientBindable.Value.OnReady += (sender, e) =>
+            {
+                Console.WriteLine("Received Ready from user {0}", e.User.Username);
+            };
+
+            clientBindable.Value.OnPresenceUpdate += (sender, e) =>
+            {
+                Console.WriteLine("Received Update! {0}", e.Presence);
+            };
+
+            //Connect to the RPC
+            clientBindable.Value.Initialize();
+
+            clientBindable.Value.SetPresence(presence);
+
+
+
         }
 
-        
 
-       
+
+
 
     }
 }
