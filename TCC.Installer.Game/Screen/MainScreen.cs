@@ -4,6 +4,7 @@ using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Logging;
+using osu.Framework.Screens;
 using osuTK;
 using System;
 using System.IO;
@@ -17,6 +18,7 @@ namespace TCC.Installer.Game.Screen
 
     public class MainScreen : osu.Framework.Screens.Screen
     {
+        public Func<bool> Exiting;
         public static GridContainer TopBarContainer;
         public static Container BackgroundSpriteContainer;
         public static Container FormContainer;
@@ -125,6 +127,37 @@ namespace TCC.Installer.Game.Screen
 
         }
 
+        public override void OnEntering(IScreen last) 
+        {
+            if (last != null)
+            {
+                this.MoveTo(new Vector2(0, -DrawSize.Y));
+                this.MoveTo(Vector2.Zero, 500, Easing.OutQuint);
+                this.FadeIn(1000);
+            }
+            base.OnEntering(last);
+
+        }
+
+        public override bool OnExiting(IScreen next)
+        {
+            bool onExit = base.OnExiting(next);
+            if (Exiting?.Invoke() == true)
+                return true;
+            this.MoveTo(new Vector2(0, -DrawSize.Y), 1500, Easing.OutQuint);
+            return onExit;
+        }
+
+        public override void OnSuspending(IScreen next)
+        {
+            base.OnSuspending(next);
+            this.MoveTo(new Vector2(0, DrawSize.Y), 1500, Easing.OutQuint);
+        }
+        public override void OnResuming(IScreen last)
+        {
+            base.OnResuming(last);
+            this.MoveTo(Vector2.Zero, 1500, Easing.OutQuint);
+        }
 
 
 

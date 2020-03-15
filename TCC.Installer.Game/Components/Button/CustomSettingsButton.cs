@@ -85,8 +85,8 @@ namespace TCC.Installer.Game.Components.Button
         {
             Action = () =>
             {
-                //TCCInstallerGame.mainScreen.Push(new CustomSettingsScreen());
-                MainScreen.FormContainer.MoveToY(-1050,700,Easing.OutQuint);
+                TCCInstallerGame.mainScreen.Push(new CustomSettingsScreen());
+                //MainScreen.FormContainer.MoveToY(-1050,700,Easing.OutQuint);
             };
 
             CornerRadius = 5;
