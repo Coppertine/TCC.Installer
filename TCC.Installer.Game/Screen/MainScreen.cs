@@ -20,7 +20,7 @@ namespace TCC.Installer.Game.Screen
     {
         public Func<bool> Exiting;
         public static GridContainer TopBarContainer;
-        public static Container BackgroundSpriteContainer;
+        
         public static Container FormContainer;
         public static Container CustomSettingsContainer;
 
@@ -68,12 +68,6 @@ namespace TCC.Installer.Game.Screen
             RelativeSizeAxes = Axes.Both;
             AddRangeInternal(new Drawable[]
             {
-                BackgroundSpriteContainer = new Container
-                {
-                    Child = new BackgroundComponent(),
-                    RelativeSizeAxes = Axes.Both,
-                    Anchor=Anchor.TopLeft
-                },
                 FormContainer = new BasicSelectionComponent()
                 {
                     Anchor = Anchor.Centre,
@@ -129,7 +123,7 @@ namespace TCC.Installer.Game.Screen
 
         public override void OnEntering(IScreen last) 
         {
-            if (last != null)
+            if (last != null && !(last is BackgroundScreen))
             {
                 this.MoveTo(new Vector2(0, -DrawSize.Y));
                 this.MoveTo(Vector2.Zero, 500, Easing.OutQuint);

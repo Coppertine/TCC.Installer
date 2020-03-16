@@ -1,9 +1,12 @@
 ﻿using osu.Framework.Allocation;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TCC.Installer.Game.Graphics;
 
 namespace TCC.Installer.Game.Components.CustomSettings
 {
@@ -13,9 +16,13 @@ namespace TCC.Installer.Game.Components.CustomSettings
         private void load()
         {
 
-            AddInternal(new SpriteText { 
-                Text = "helloworld", 
-                Anchor = osu.Framework.Graphics.Anchor.Centre});
+            AddRangeInternal(new Drawable[]
+                {
+                    new Box
+                    {
+
+                    }
+                });
             
         }
     }

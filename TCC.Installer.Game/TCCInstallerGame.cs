@@ -19,6 +19,7 @@ namespace TCC.Installer.Game
     {
         
         public static ScreenStack installerScreenStack;
+        public static BackgroundScreen backgroundScreen;
         public static MainScreen mainScreen;
         [Cached]
         protected readonly GlobalStore store = new GlobalStore();
@@ -57,9 +58,9 @@ namespace TCC.Installer.Game
             installerScreenStack.RelativeSizeAxes = Axes.Both;
             Add(installerScreenStack);
 
-
-
-            installerScreenStack.Push(mainScreen = new MainScreen());
+            
+            installerScreenStack.Push(backgroundScreen = new BackgroundScreen());
+            
         }
 
         

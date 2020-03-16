@@ -28,7 +28,7 @@ namespace TCC.Installer.Game.Screen
         {
    
 
-            this.MoveTo(new Vector2(0, DrawSize.Y), 1500, Easing.OutQuint);
+            this.MoveTo(new Vector2(0, DrawSize.Y), 1500, Easing.None);
             return base.OnExiting(next);
         }
 

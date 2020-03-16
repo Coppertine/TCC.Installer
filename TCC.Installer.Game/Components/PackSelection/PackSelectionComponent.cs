@@ -34,7 +34,7 @@ namespace TCC.Installer.Game.Components.PackSelection
                     new PackItemComponent
                     {
                         DisplayName = "Minimum",
-                        DisplayColour = new Color4(0, 1, 0, 0.7),
+                        DisplayColour = new Color4(0, 1, 0, 0.7f),
                         Anchor = Anchor.CentreLeft,
                         Origin = Anchor.CentreLeft,
                         RelativeSizeAxes = Axes.Both,
@@ -42,7 +42,7 @@ namespace TCC.Installer.Game.Components.PackSelection
                     },new PackItemComponent
                     {
                         DisplayName = "Standart",
-                        DisplayColour = new Color4(0, 0, 1, 0.7),
+                        DisplayColour = new Color4(0, 0, 1, 0.7f),
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         RelativeSizeAxes = Axes.Both,
@@ -50,7 +50,7 @@ namespace TCC.Installer.Game.Components.PackSelection
                     },new PackItemComponent
                     {
                         DisplayName = "Deluxe",
-                        DisplayColour = new Color4(0, 0, 1, 0.7),
+                        DisplayColour = new Color4(1, 0, 0, 0.7f),
                         Anchor = Anchor.CentreRight,
                         Origin = Anchor.CentreRight,
                         RelativeSizeAxes = Axes.Both,
