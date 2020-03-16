@@ -50,7 +50,6 @@ namespace TCC.Installer.Game.Components.PackSelection
                     Origin = anchorPosition,
                     Position = new osuTK.Vector2(x: xPositionBox, y: 0),
                     Colour = DisplayColour,
-                    Alpha = 0.7f
                 }
             );
 
