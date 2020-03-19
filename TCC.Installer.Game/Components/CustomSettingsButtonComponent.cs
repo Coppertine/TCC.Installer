@@ -6,7 +6,7 @@ using TCC.Installer.Game.Components.Button;
 
 namespace TCC.Installer.Game.Components
 {
-    public class CustomSettingsButtonComponent : Container
+    public class CustomSettingsButtonComponent : DrawSizePreservingFillContainer
     {
         [BackgroundDependencyLoader]
         private void load()

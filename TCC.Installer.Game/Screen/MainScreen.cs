@@ -123,12 +123,10 @@ namespace TCC.Installer.Game.Screen
 
         public override void OnEntering(IScreen last) 
         {
-            if (last != null && !(last is BackgroundScreen))
-            {
-                this.MoveTo(new Vector2(0, -DrawSize.Y));
-                this.MoveTo(Vector2.Zero, 500, Easing.OutQuint);
-                this.FadeIn(1000);
-            }
+            this.MoveTo(new Vector2(0, +DrawSize.Y));
+            this.MoveTo(Vector2.Zero, 500, Easing.In);
+            this.FadeIn(1000);
+            
             base.OnEntering(last);
 
         }

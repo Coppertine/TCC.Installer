@@ -18,10 +18,7 @@ namespace TCC.Installer.Game.Components.CustomSettings
 
             AddRangeInternal(new Drawable[]
                 {
-                    new Box
-                    {
-
-                    }
+                    
                 });
             
         }

@@ -1,11 +1,13 @@
 ﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Sprites;
 using osuTK;
 using osuTK.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TCC.Installer.Game.Graphics;
 using TCC.Installer.Game.Screen;
 
 namespace TCC.Installer.Game.Components.PackSelection
@@ -21,11 +23,20 @@ namespace TCC.Installer.Game.Components.PackSelection
             RelativeSizeAxes = Axes.None;
             selectedPack = MainScreen.CustomPackBindable.Value;
             // Masking Container for Round Corners at 0
+
+            AddInternal(new SpriteText
+            {
+                Text = "Choose Your Pack".ToUpper(),
+                Font = TCCFont.GetFont(Typeface.Ageo, 29, FontWeight.Regular),
+                Position = new Vector2(0, -230),
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre
+            });
             AddInternal(new Container
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Position = new Vector2(0, -150),
+                Position = new Vector2(0, -160),
                 Masking = true,
                 RelativeSizeAxes = Axes.Both,
                 CornerRadius = 10,

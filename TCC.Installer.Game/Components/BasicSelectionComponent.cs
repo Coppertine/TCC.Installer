@@ -30,7 +30,7 @@ namespace TCC.Installer.Game.Components
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
-                Size = new Vector2(800, 50),
+                Size = new Vector2(800, 55),
                 RelativeSizeAxes = Axes.None
             }, Add);
 

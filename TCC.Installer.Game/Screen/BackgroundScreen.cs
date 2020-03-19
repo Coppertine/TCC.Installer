@@ -30,6 +30,11 @@ namespace TCC.Installer.Game.Screen
                     Anchor = Anchor.TopLeft
                 
             });
+            AddInternal(new MenuBarComponent
+            {
+                Anchor = Anchor.TopLeft,
+                Depth = -999
+            });
 
             OnLoadComplete += BackgroundScreen_OnLoadComplete;
             

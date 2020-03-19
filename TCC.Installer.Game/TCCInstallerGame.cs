@@ -9,6 +9,7 @@ using osu.Framework.IO.Stores;
 using osu.Framework.Screens;
 using osuTK;
 using osuTK.Platform;
+using System;
 using System.Drawing;
 using TCC.Installer.Game.Screen;
 using TCCInstaller.Game;
@@ -36,9 +37,10 @@ namespace TCC.Installer.Game
         [BackgroundDependencyLoader]
         private void load()
         {
-            Window.WindowBorder = WindowBorder.Resizable;
+            Window.WindowBorder = WindowBorder.Hidden;
+            
             Window.Title = "The Cursed Constellations Installer";
-            Window.Size = new System.Drawing.Size(1280,720);
+            Window.Size = new Size(1600, 900);
             Resources.AddStore(new DllResourceStore(mainResourceFile));
             largeTextureStore = new LargeTextureStore(Host.CreateTextureLoaderStore(new NamespacedResourceStore<byte[]>(Resources, @"Textures")));
             largeTextureStore.AddStore(Host.CreateTextureLoaderStore(new OnlineStore()));

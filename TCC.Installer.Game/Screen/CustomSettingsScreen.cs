@@ -18,7 +18,7 @@ namespace TCC.Installer.Game.Screen
         {
             settingsContainer = new CustomSettingsContainer()
             {
-                Anchor = Anchor.BottomCentre,
+                Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
                 RelativeSizeAxes = Axes.Both
             };
